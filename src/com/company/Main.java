@@ -9,6 +9,8 @@ public class Main {
         Kalkulator kalkulator = new Kalkulator();
         kalkulator.obliczMiejscaZerowe();
 
+
+
 //        Scanner scanner = new Scanner(System.in);
 //
 //        int a = scanner.nextInt();

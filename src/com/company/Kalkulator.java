@@ -1,12 +1,5 @@
 package com.company;
 
-
-
-
-import javafx.util.Pair;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Kalkulator {
@@ -16,33 +9,39 @@ public class Kalkulator {
     private int c;
 
     public void obliczMiejscaZerowe() {
+        //dgfgbdfbdbfe
 
         pobierzDane();
         double delta = obliczDelte();
 
-        if(delta > 0){
-            double[] wynik = wyznaczDwaMiejsca(delta);
-            System.out.println("Miejsca zerowe: "+"x1="+wynik[0]+"x2="+wynik[1]);
+        if (delta > 0) {
+            printResult(wyznaczDwaMiejsca(delta), delta);
         }
-        if(delta == 0){
-            /*
-            jedno miejsce zerowe
-             */
+        if (delta == 0) {
+            printResult(wyznaczDwaMiejsca(delta), delta);
         }
-        if (delta < 0){
-            // brak miejsc
+        if (delta < 0) {
+            printResult(null, delta);
+        }
+    }
+
+    private void printResult(double[] miejsca, double delta) {
+
+        if (delta > 0) {
+            System.out.println("Miejsca zerowe: " + "x1=" + miejsca[0] + "x2=" + miejsca[1]);
+        }
+        if (delta == 0) {
+            System.out.println("Miejsce zerowe: " + "x1=" + miejsca[1]);
+        }
+        if (delta < 0) {
+            System.out.println("Brak miejsc!");
         }
     }
 
     private double[] wyznaczDwaMiejsca(Double delta) {
-
-        double x1 = (b * (-1) - Math.sqrt(delta)) / (2 * a);
-        double x2 = (b * (-1) + Math.sqrt(delta)) / (2 * a);
-
         double[] result = new double[2];
-        result[0] = x1;
-        result[1] = x2;
-
+        result[0] = (b * (-1) - Math.sqrt(delta)) / (2 * a);
+        result[1] = (b * (-1) + Math.sqrt(delta)) / (2 * a);
         return result;
     }
 
